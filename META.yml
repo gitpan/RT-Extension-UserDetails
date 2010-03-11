@@ -1,0 +1,12 @@
+abstract: Adds a button that links to user personnal informations, on each user listed in ticket "People" box
+author: 'Emmanuel Lacour <elacour@home-dn.net>'
+distribution_type: module
+generated_by: Module::Install version 0.77
+license: perl
+name: RT-Extension-UserDetails
+no_index:
+  directory:
+    - html
+    - inc
+    - lib
+version: 0.01
