@@ -1,8 +1,8 @@
 <span id="toggleuserdetails-<% $id %>">
 % if ( $Toggle ) {
-<a href="<% $url %>" onclick="ahah('<% $url |n %>&Toggle=0', 'toggleuserdetails-<% $id |n %>'); return false;" <img src="<% RT->Config->Get('WebPath') %>/NoAuth/images/userdetails.png" alt="<% loc('Details') %>" title="<% loc('Details') %>" style="border-style: none" /></a>
+<a href="<% $url %>" onclick="ahah('<% $url |n %>&Toggle=0', 'toggleuserdetails-<% $id |n %>'); return false;"><img src="<% RT->Config->Get('WebPath') %>/NoAuth/images/userdetails.png" alt="<% loc('Details') %>" title="<% loc('Details') %>" style="border-style: none" /></a>
 <div id="userdetails">
-<a href="<% $url %>" onclick="ahah('<% $url |n %>&Toggle=0', 'toggleuserdetails-<% $id |n %>'); return false;" <img src="<% RT->Config->Get('WebPath') %>/NoAuth/images/close.png" alt="<% loc('Close') %>" title="<% loc('Close') %>" style="border-style: none" /></a>
+<a href="<% $url %>" onclick="ahah('<% $url |n %>&Toggle=0', 'toggleuserdetails-<% $id |n %>'); return false;"><img src="<% RT->Config->Get('WebPath') %>/NoAuth/images/close.png" alt="<% loc('Close') %>" title="<% loc('Close') %>" style="border-style: none" /></a>
 <ul>
 % foreach my $sort (sort { $a <=> $b } keys %attributes) {
 % my $attr_name = $attributes{$sort}{'AttributeName'};
@@ -12,7 +12,7 @@
 </ul>
 </div>
 % } else {
-<a href="<% $url %>" onclick="ahah('<% $url |n %>&Toggle=1', 'toggleuserdetails-<% $id |n %>'); return false;" <img src="<% RT->Config->Get('WebPath') %>/NoAuth/images/userdetails.png" alt="<% loc('Details') %>" title="<% loc('Details') %>" style="border-style: none" /></a>
+<a href="<% $url %>" onclick="ahah('<% $url |n %>&Toggle=1', 'toggleuserdetails-<% $id |n %>'); return false;"><img src="<% RT->Config->Get('WebPath') %>/NoAuth/images/userdetails.png" alt="<% loc('Details') %>" title="<% loc('Details') %>" style="border-style: none" /></a>
 % }
 </span>
 
@@ -22,8 +22,11 @@ my $url = RT->Config->Get('WebPath') ."/Helpers/Toggle/UserDetails?id=". $id;
 # Default Attributes to display
 # SortOrder => { AttributeName => '',
 #                DisplayName   => '', }
-unless ( RT->Config->Get('UserDetailsAttributes') ) {
-    RT->Config->Set('UserDetailsAttributes',
+my %attributes;
+if ( RT->Config->Get('UserDetailsAttributes') ) {
+    %attributes = RT->Config->Get('UserDetailsAttributes');
+} else {
+    %attributes = ( 
         1 => { AttributeName => 'RealName',
                DisplayName => 'Real Name',
              },
@@ -32,13 +35,9 @@ unless ( RT->Config->Get('UserDetailsAttributes') ) {
              },
         3 => { AttributeName => 'Organization',
                DisplayName => 'Organization',
-             },
+             }, 
         );
 }
-
-my %attributes = RT->Config->Get('UserDetailsAttributes');
-
-
 
 my $User;
 
