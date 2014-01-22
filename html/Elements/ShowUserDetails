@@ -1,8 +1,8 @@
 <span id="toggleuserdetails-<% $id %>">
 % if ( $Toggle ) {
-<a href="<% $url %>" onclick="ahah('<% $url |n %>&Toggle=0', 'toggleuserdetails-<% $id |n %>'); return false;"><img src="<% RT->Config->Get('WebPath') %>/NoAuth/images/userdetails.png" alt="<% loc('Details') %>" title="<% loc('Details') %>" style="border-style: none" /></a>
+<a href="<% $url %>" onclick="ahah('<% $url |n %>&Toggle=0', 'toggleuserdetails-<% $id |n %>'); return false;"><img src="<% RT->Config->Get('WebImagesURL') %>/RT-Extension-UserDetails/userdetails.png" alt="<% loc('Details') %>" title="<% loc('Details') %>" style="border-style: none" /></a>
 <div id="userdetails">
-<a href="<% $url %>" onclick="ahah('<% $url |n %>&Toggle=0', 'toggleuserdetails-<% $id |n %>'); return false;"><img src="<% RT->Config->Get('WebPath') %>/NoAuth/images/close.png" alt="<% loc('Close') %>" title="<% loc('Close') %>" style="border-style: none" /></a>
+<a href="<% $url %>" onclick="ahah('<% $url |n %>&Toggle=0', 'toggleuserdetails-<% $id |n %>'); return false;"><img src="<% RT->Config->Get('WebImagesURL') %>/RT-Extension-UserDetails/close.png" alt="<% loc('Close') %>" title="<% loc('Close') %>" style="border-style: none" /></a>
 <ul>
 % foreach my $sort (sort { $a <=> $b } keys %attributes) {
 % my $attr_name = $attributes{$sort}{'AttributeName'};
@@ -12,7 +12,7 @@
 </ul>
 </div>
 % } else {
-<a href="<% $url %>" onclick="ahah('<% $url |n %>&Toggle=1', 'toggleuserdetails-<% $id |n %>'); return false;"><img src="<% RT->Config->Get('WebPath') %>/NoAuth/images/userdetails.png" alt="<% loc('Details') %>" title="<% loc('Details') %>" style="border-style: none" /></a>
+<a href="<% $url %>" onclick="ahah('<% $url |n %>&Toggle=1', 'toggleuserdetails-<% $id |n %>'); return false;"><img src="<% RT->Config->Get('WebImagesURL') %>/RT-Extension-UserDetails/userdetails.png" alt="<% loc('Details') %>" title="<% loc('Details') %>" style="border-style: none" /></a>
 % }
 </span>
 

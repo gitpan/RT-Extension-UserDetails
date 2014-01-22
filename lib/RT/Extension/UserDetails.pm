@@ -9,11 +9,11 @@ RT::Extension::UserDetails - allows to quickly display watchers personnal detail
 
 =head1 VERSION
 
-Version 0.02
+Version 0.03
 
 =cut
 
-our $VERSION = '0.02';
+our $VERSION = '0.03';
 
 
 =head1 SYNOPSIS
@@ -70,7 +70,7 @@ L<http://search.cpan.org/dist/RT-Extension-UserDetails>
 
 =head1 COPYRIGHT & LICENSE
 
-Copyright 2010 Emmanuel Lacour, all rights reserved.
+Copyright 2010-2014 Emmanuel Lacour, all rights reserved.
 
 This program is free software; you can redistribute it and/or modify it
 under the same terms as Perl itself.
